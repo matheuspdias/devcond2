@@ -46,7 +46,7 @@ class Createalltables extends Migration
             $table->id();
             $table->integer('id_unit');
             $table->string('name');
-            $table->date('race');
+            $table->string('race');
         });
 
         Schema::create('walls', function(Blueprint $table) {
