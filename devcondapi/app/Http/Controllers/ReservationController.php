@@ -271,4 +271,43 @@ class ReservationController extends Controller
 
         return $array;
     }
+
+    public function getMyReservations(Request $request) {
+        $array = ['error' => '', 'list' => []];
+        
+        $property = $request->input('property');
+        if($property) {
+            $unit = Unit::find($property);
+            if($unit) {
+
+                $reservations = Reservation::where('id_unit', $property)
+                ->orderBy('reservation_date', 'DESC')
+                ->get();
+
+                foreach($reservations as $reservation) {
+                    $area = Area::find($reservation['id_area']);
+
+                    $daterev = date('d/m/Y H:i', strtotime($reservation['reservation_date']));
+                    $aftertime = date('H:i', strtotime('+1 hour', strtotime($reservation['reservation_date'])));
+                    $daterev .= ' à '.$aftertime;
+
+                    $array['list'][] = [
+                        'id' => $reservation['id'],
+                        'id_area' => $reservation['id_area'],
+                        'title' => $area['title'],
+                        'cover' => asset('storage/'.$area['cover']),
+                        'datereserved' => $daterev
+                    ];
+                }
+
+            } else {
+                $array['error'] = 'Propriedade inexistente!';
+            }
+
+        } else {
+            $array['error'] = 'Propriedade Necessária!';
+        }
+
+        return $array;
+    }
 }
