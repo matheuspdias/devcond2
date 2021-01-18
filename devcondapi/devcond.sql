@@ -161,7 +161,7 @@ CREATE TABLE `reservations` (
   `reservation_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
+-- 
 -- Extraindo dados da tabela `reservations`
 --
 
