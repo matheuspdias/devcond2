@@ -6,5 +6,6 @@ export default {
         justifyContent: center;
         alignItems: center;
     `,
-    LoadingIcon: styled.ActivityIndicator``
+    LoadingIcon: styled.ActivityIndicator``,
+    Button: styled.Button``
 };
