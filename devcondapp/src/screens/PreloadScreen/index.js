@@ -15,7 +15,7 @@ export default () => {
             if(token) {
                 let result = await api.validateToken();
                 if(result.error === '') {
-                    dispatch({type: 'SetUser', payload: {user: result.user}});
+                    dispatch({type: 'setUser',payload: {user: result.user}});
                     navigation.reset({
                         index: 1,
                         routes:[{name: 'ChoosePropertyScreen'}]

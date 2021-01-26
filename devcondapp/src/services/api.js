@@ -46,6 +46,7 @@ export default {
         let token = await AsyncStorage.getItem('token');
         let json = await request('post', '/auth/logout', {}, token);
         await AsyncStorage.removeItem('token');
+        await AsyncStorage.removeItem('property');
         return json;
     },
     register: async (name, email, cpf, password, password_confirm) => {

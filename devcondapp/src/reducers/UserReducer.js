@@ -16,7 +16,7 @@ export default (state = initialState, action = {}) => {
             return { ...state, user:action.payload.user }
         break;
         case 'setProperty':
-            return { ...state, user:action.payload.property }
+            return { ...state, property:action.payload.property }
         break;
 
     }
