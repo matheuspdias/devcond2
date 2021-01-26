@@ -6,7 +6,7 @@
     user: UserReducer()
  };
  const MainReducer = (state, action) => ({
-     user:useReducer(state.user, action)
+     user:UserReducer(state.user, action)
  });
 
  export const StateContext = createContext();
