@@ -8,7 +8,7 @@ import api from '../../services/api';
 
 export default () => {
     const navigation = useNavigation();
-    const [context, dispatch] = useStateValue();
+    const [context, dispatch] = useStateValue();    
 
     const [loading, setLoading] = useState(true);
 
