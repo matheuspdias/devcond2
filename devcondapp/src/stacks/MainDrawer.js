@@ -6,6 +6,7 @@ import DocumentScreen from '../screens/DocumentScreen';
 import BilletScreen from '../screens/BilletScreen';
 import WarningScreen from '../screens/WarningScreen';
 import WarningAddScreen from '../screens/WarningAddScreen';
+import ReservationScreen from '../screens/ReservationScreen';
 
 import DrawerCustom from '../components/DrawerCustom';
 
@@ -44,6 +45,10 @@ export default () => {
             <Drawer.Screen 
                 name="WarningAddScreen"
                 component={WarningAddScreen}
+            />
+            <Drawer.Screen 
+                name="ReservationScreen"
+                component={ReservationScreen}
             />
         </Drawer.Navigator>
     );
