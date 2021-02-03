@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const baseUrl = 'https://mppro.com.br/api';
+const baseUrl = 'https://api.b7web.com.br/devcond/api';
 
 const request = async (method, endpoint, params, token = null) => {
     method = method.toLowerCase();
@@ -121,6 +121,27 @@ export default {
     getReservations: async () => {
         let token = await AsyncStorage.getItem('token');
         let json = await request('get', '/reservations', {}, token);
+        return json;
+    },
+    getDisabledDates: async (id) => {
+        let token = await AsyncStorage.getItem('token');
+        let json = await request('get', `/reservation/${id}/disableddates`, {}, token);
+        return json;
+    },
+    getReservationsTimes: async (id, date) => {
+        let token = await AsyncStorage.getItem('token');
+        let json = await request('get', `/reservation/${id}/times`, {date}, token);
+        return json;
+    },
+    setReservation: async (id, date, time) => {
+        let token = await AsyncStorage.getItem('token');
+        let property = await AsyncStorage.getItem('property');
+        property = JSON.parse(property);
+        let json = await request('post', `/reservation/${id}`, {
+            property: property.id,
+            date,
+            time
+        }, token);
         return json;
     }
 };
