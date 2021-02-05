@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const baseUrl = 'https://api.b7web.com.br/devcond/api';
+const baseUrl = 'https://mppro.com.br/api';
 
 const request = async (method, endpoint, params, token = null) => {
     method = method.toLowerCase();
@@ -156,6 +156,18 @@ export default {
     removeReservation: async (id) => {
         let token = await AsyncStorage.getItem('token');
         let json = await request('delete', `/myreservation/${id}`, {}, token);
+        return json;
+    },
+    getFoundAndLost: async () => {
+        let token = await AsyncStorage.getItem('token');
+        let json = await request('get', '/foundandlost' , {}, token);
+        return json;
+    },
+    setRecovered: async (id) => {
+        let token = await AsyncStorage.getItem('token');
+        let json = await request('put', `/foundandlost/${id}` , {
+            status: 'recovered'
+        }, token);
         return json;
     }
 };
