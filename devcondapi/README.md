@@ -4,30 +4,30 @@
 Esta API é utilizada para o Aplicativo de gestão de condominio ( DevCond )
 
 ## Instalando dependencias e executando a api
-```
+
   # API
   $ cd devcond
   $ cd devcondapi
-  # Criando banco de dados
+  ### Criando banco de dados
   $ No phpmyadmin crie um banco com o nome devcond  
-  # Instalando as dependências do projeto.
+  ### Instalando as dependências do projeto.
   $ composer install --no-scripts
-  # renomeio o arquivo env.example para .env
+  ### renomeio o arquivo env.example para .env
   $ no arquivo .env use DB_DATABASE=devcond
-  # Execute as migrations para criar tabelas com o seguinte comando:
+  ### Execute as migrations para criar tabelas com o seguinte comando:
   $ php artisan migrate
-  # Execute o seeder para popular as tebelas
+  ### Execute o seeder para popular as tebelas
   $ php artisan db:seed
-  # Executando os storage para compartilhar arquivos e imagens
+  ### Executando os storage para compartilhar arquivos e imagens
   $ php artisan storage:link (CASO DE ERRO APAGUE A PASTA STORAGE EM PUBLIC/STORAGE E EXECUTE O COMANDO NOVAMENTE)
-  # Gere uma nova chave para a aplicação laravel:
+  ### Gere uma nova chave para a aplicação laravel:
   $ php artisan key:generate
-  # Publicar configuração de JWT
+  ### Publicar configuração de JWT
   $ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
   $ depois execute php artisan jwt:secret
-  # Inicie a API
+  ### Inicie a API
   $ php artisan serve --host=0.0.0.0
-```
+
 
 ## Endpoints
 ### BASEURL: http://localhost:8000/api
