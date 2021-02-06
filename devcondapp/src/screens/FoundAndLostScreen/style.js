@@ -28,4 +28,7 @@ export default {
         paddingLeft: 20px;
         marginBottom: 20px;
     `,
+    AddButton: styled.TouchableOpacity`
+        marginRight: 15px;
+    `,
 };

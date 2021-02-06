@@ -169,5 +169,26 @@ export default {
             status: 'recovered'
         }, token);
         return json;
+    },
+    addLostItem: async (photo, description, where) => {
+        let token = await AsyncStorage.getItem('token');
+        let formData = new FormData();
+        formData.append('description', description);
+        formData.append('where', where);
+        formData.append('photo', {
+            uri: photo.uri,
+            type: photo.type,
+            name: photo.fileName
+        });
+        let req = await fetch(`${baseUrl}/foundandlost`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        });
+        let json = await req.json();
+        return json;
     }
 };

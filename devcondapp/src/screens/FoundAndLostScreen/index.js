@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import C from './style';
 
 import { useStateValue } from '../../contexts/StateContext';
@@ -17,10 +18,26 @@ export default () => {
 
     useEffect(() => {
         navigation.setOptions({
-            headerTitle: 'Achados e Perdidos'
+            headerTitle: 'Achados e Perdidos',
+            headerRight: () => (
+                <C.AddButton onPress={handleAddItem}>
+                    <Icon name="plus" size={24} color="#000" />
+                </C.AddButton>
+            )
         });
         getFoundAndLost();
     }, []);
+
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            getFoundAndLost();
+        });
+        return unsubscribe;
+    }, [navigation])
+
+    const handleAddItem = () => {
+        navigation.navigate('FoundAndLostAddScreen');
+    }
 
     const getFoundAndLost = async () => {
         setLostList([]);

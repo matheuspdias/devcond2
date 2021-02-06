@@ -10,6 +10,7 @@ import ReservationScreen from '../screens/ReservationScreen';
 import ReservationAddScreen from '../screens/ReservationAddScreen';
 import ReservationMyScreen from '../screens/ReservationMyScreen';
 import FoundAndLostScreen from '../screens/FoundAndLostScreen';
+import FoundAndLostAddScreen from '../screens/FoundAndLostAddScreen';
 
 import DrawerCustom from '../components/DrawerCustom';
 
@@ -65,6 +66,10 @@ export default () => {
             <Drawer.Screen 
                 name="FoundAndLostScreen"
                 component={FoundAndLostScreen}
+            />
+            <Drawer.Screen 
+                name="FoundAndLostAddScreen"
+                component={FoundAndLostAddScreen}
             />
         </Drawer.Navigator>
     );
