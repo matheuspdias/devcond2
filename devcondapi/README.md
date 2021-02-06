@@ -24,6 +24,7 @@ Esta API é utilizada para o Aplicativo de gestão de condominio ( DevCond )
   $ php artisan key:generate
   ### Publicar configuração de JWT
   $ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+  
   $ depois execute php artisan jwt:secret
   ### Inicie a API
   $ php artisan serve --host=0.0.0.0
