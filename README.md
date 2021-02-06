@@ -31,6 +31,6 @@ O **Projeto** é um sistema de gestão de condominio e foi feito para treinar ha
   $ git clone https://github.com/matheuspdias/devcond.git
 ```
 
- - Passo a passo de como executar o aplicativo: https://github.com/matheuspdias/devcond/tree/main/devcondapp
- - Passo a passo de como executar o back-end: https://github.com/matheuspdias/devcond/tree/main/devcondapi
+ - Passo a passo de como executar o aplicativo: https://github.com/matheuspdias/devcond/blob/main/devcondapp/README.md
+ - Passo a passo de como executar o back-end: https://github.com/matheuspdias/devcond/blob/main/devcondapi/README.md
 
