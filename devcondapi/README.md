@@ -140,7 +140,7 @@ ou
 }
 ```
 
-## ------ Endpoints mural de avisos ------
+## ------ Endpoints documentos ------
 ### GET /docs
 Esse endpoint é responsavel por buscar todos documentos geral.
 #### Parametros
