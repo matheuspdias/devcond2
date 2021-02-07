@@ -30,6 +30,7 @@ O **Projeto** está conectado a uma api em produção então basta apenas instal
 
 Executando a Aplicação:
 
+
 ```sh
 
   # Aplicação mobile
@@ -40,3 +41,9 @@ Executando a Aplicação:
   # Inicie a aplicação mobile
   $ npx react-native run-android
 ```
+
+**Obs: você pode usar o seguinte usuario registrado para teste.** 
+
+**CPF: 12345678911**
+
+**PASSWORD: 1234**
