@@ -174,7 +174,7 @@ Esse endpoint é responsavel por buscar todos documentos geral.
 #### Parametros
 token: token do usuario, pode ser enviado pelo corpo da requisição ou pelo header Authorization = Bearer +token
 
-#### Respostar
+#### Respostas
 ##### OK! 200
 Irá listar todos documentos
 
@@ -196,3 +196,124 @@ Exemplo de resposta:
    ]
 }
 ```
+
+## ------ Endpoints Livro de ocorrências ------
+### GET /warnings
+Esse endpoint é responsavel por buscar todos as ocorrencias registrada por sua propriedade .
+#### Parametros
+token: token do usuario, pode ser enviado pelo corpo da requisição ou pelo header Authorization = Bearer +token
+property: id da propriedade(unit)
+
+#### Respostas
+##### OK! 200
+Irá listar todas as ocorrências registradas naquela propriedade
+
+Exemplo de resposta:
+
+```
+{
+   "error":"",
+   "list":[      
+      {
+         "id":2,
+         "id_unit":2,
+         "title":"Vizinho chato via api",
+         "status":"IN_REVIEW",
+         "datecreated":"12\/01\/2021",
+         "photos":[
+            
+         ]
+      },
+      {
+         "id":1,
+         "id_unit":2,
+         "title":"Vizinho \u00e9 chato",
+         "status":"IN_REVIEW",
+         "datecreated":"12\/01\/2021",
+         "photos":[
+            "http:\/\/127.0.0.1:8000\/storage\/foto1.jpg",
+            "http:\/\/127.0.0.1:8000\/storage\/foto2.jpg"
+         ]
+      }
+   ]
+}
+```
+
+### POST /warning/file
+Esse endpoint irá adicionar a imagem ao localstorage e retornar a url dela para possiveis envio.
+#### Parametros
+token: token do usuario, pode ser enviado pelo corpo da requisição ou pelo header Authorization = Bearer +token
+photo: url da imagem. Este campo deve ser enviado como arquivo(File)
+#### Respostas
+##### OK! 200
+Caso a imagem for adicionada irá retornar a url pronta da mesma.
+
+Exemplo de resposta:
+```
+{
+   "error":"",
+   "photo":"http:\/\/127.0.0.1:8000\/storage\/5n1rH9TjrwjausaUUrlHrfc1X5ZdV8chcCcSzHpo.png"
+}
+```
+
+### POST /warning
+Esse endpoint é responsavel por Adicionar uma nova ocorrencia.
+#### Parametros
+token: token do usuario, pode ser enviado pelo corpo da requisição ou pelo header Authorization = Bearer +token
+title: titulo da ocorrência
+property: id da propriedade(unit)
+list: um array de fotos (opcional)
+você pode enviar mais de uma foto assim:
+list[0] = url da foto
+list[1] = url da foto
+
+#### Respostas
+##### OK! 200
+Caso o error retorne vazio a ocorrência foi adicionada com sucesso
+
+Exemplo de resposta:
+
+```
+{
+   "error":""
+}
+```
+Possiveis erros:
+```
+{
+   "error":"O campo property \u00e9 obrigat\u00f3rio."
+}
+ou
+{
+   "error":"O campo t\u00edtulo \u00e9 obrigat\u00f3rio."
+}
+```
+
+## ------ Endpoints de boletos ------
+
+### GET /billets
+Esse endpoint é responsavel por buscar os boletos daquela propriedade.
+#### Parametros
+token: token do usuario, pode ser enviado pelo corpo da requisição ou pelo header Authorization = Bearer +token
+property: id da propriedade(unit)
+
+#### Respostas
+##### OK! 200
+Caso erro retorne vazio irá listar todos boletos daquele propriedade
+
+Exemplo de resposta:
+```
+{
+   "error":"",
+   "list":[
+      {
+         "id":1,
+         "id_unit":1,
+         "title":"Dez\/20",
+         "fileurl":"http:\/\/127.0.0.1:8000\/storage1_dez20.pdf"
+      }
+   ]
+}
+```
+
+
