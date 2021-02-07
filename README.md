@@ -33,4 +33,10 @@ O **Projeto** é um sistema de gestão de condominio e foi feito para treinar ha
 
  - Passo a passo de como executar o aplicativo: https://github.com/matheuspdias/devcond/blob/main/devcondapp/README.md
  - Passo a passo de como executar o back-end: https://github.com/matheuspdias/devcond/blob/main/devcondapi/README.md
+ 
+ **Obs: você pode usar o seguinte usuario registrado para teste.** 
+
+**CPF: 12345678911**
+
+**PASSWORD: 1234**
 
