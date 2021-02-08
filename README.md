@@ -10,6 +10,7 @@
 </p>
 
 ## :bookmark: Sobre
+**A api está rodando em um servidor e está sendo consumida no app então a instalação do backend é opcional.**
 
 O **Projeto** é um sistema de gestão de condominio e foi feito para treinar habilidades com a biblioteca **React Native** e o framework **Laravel**.
 
