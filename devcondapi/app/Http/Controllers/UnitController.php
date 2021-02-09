@@ -71,7 +71,7 @@ class UnitController extends Controller
         if(!$validator->fails()) {
             $title = $request->input('title');
             $color = $request->input('color');
-            $plate = $request->input('color');
+            $plate = $request->input('plate');
 
             $newVehicle = new UnitVehicle();
             $newVehicle->id_unit = $id;
