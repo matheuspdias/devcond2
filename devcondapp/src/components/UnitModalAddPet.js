@@ -68,14 +68,14 @@ export default ({refreshFunction, setShowModal}) => {
         <Box>
             <Title>Adicionar novo Pet</Title>
 
-            <Label>Nome do pet:</Label>
+            <Label>Nome do Pet:</Label>
             <Field 
                 placeholder="Digite o nome do pet"
                 value={name}
                 onChangeText={t=>setName(t)}
             />
 
-            <Label>Raça do pet</Label>
+            <Label>Raça do Pet</Label>
             <Field 
                 placeholder="Digite a raça do pet"
                 value={race}

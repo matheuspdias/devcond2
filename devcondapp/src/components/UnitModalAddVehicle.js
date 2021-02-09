@@ -69,21 +69,21 @@ export default ({refreshFunction, setShowModal}) => {
         <Box>
             <Title>Adicionar novo Veiculo</Title>
 
-            <Label>Nome do veículo:</Label>
+            <Label>Nome do Veículo:</Label>
             <Field 
                 placeholder="Digite o nome do veiculo"
                 value={title}
                 onChangeText={t=>setTitle(t)}
             />
 
-            <Label>Cor do veículo</Label>
+            <Label>Cor do Veículo</Label>
             <Field 
                 placeholder="Digite a cor do veiculo"
                 value={color}
                 onChangeText={t=>setColor(t)}
             />
 
-            <Label>Placa do veículo</Label>
+            <Label>Placa do Veículo</Label>
             <Field 
                 placeholder="Digite placa do veiculo"
                 value={plate}
