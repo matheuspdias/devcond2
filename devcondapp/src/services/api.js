@@ -190,5 +190,30 @@ export default {
         });
         let json = await req.json();
         return json;
+    },
+    getUnitInfo: async () => {
+        let token = await AsyncStorage.getItem('token');
+        let property = await AsyncStorage.getItem('property');
+        property = JSON.parse(property);
+        let json = await request('get', `/unit/${property.id}` , {}, token);
+        return json;
+    },
+    removeUnitItem: async (type, id) => {
+        let token = await AsyncStorage.getItem('token');
+        let property = await AsyncStorage.getItem('property');
+        property = JSON.parse(property);
+
+        let json = await request('post', `/unit/${property.id}/remove${type}` , {
+            id
+        }, token);
+        return json;
+    },
+    addUnitItem: async (type, body) => {
+        let token = await AsyncStorage.getItem('token');
+        let property = await AsyncStorage.getItem('property');
+        property = JSON.parse(property);
+
+        let json = await request('post', `/unit/${property.id}/add${type}` , body, token);
+        return json;
     }
 };

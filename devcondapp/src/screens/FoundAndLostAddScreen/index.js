@@ -6,8 +6,6 @@ import C from './style';
 import { useStateValue } from '../../contexts/StateContext';
 import api from '../../services/api';
 
-import DocItem from '../../components/DocItem';
-
 export default () => {
     const navigation = useNavigation();
     const [context, dispatch] = useStateValue();
