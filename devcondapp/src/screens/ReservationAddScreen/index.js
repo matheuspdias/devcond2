@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+const moment = require('moment');
 import { useNavigation, useRoute } from '@react-navigation/native';
 import CalendarPicker from 'react-native-calendar-picker';
 import C from './style';
@@ -65,7 +66,8 @@ export default () => {
         if(result.error === '') {
             let dateList = [];
             for(let i in result.list) {
-                dateList.push( new Date(result.list[i]) );
+                //dateList.push( new Date(result.list[i]) );
+                dateList.push(moment(new Date((result.list[i]))).add(3, 'hours'));
             }
             setDisabledDates(dateList)
         } else {
@@ -81,14 +83,15 @@ export default () => {
 
         month = month < 10 ? '0'+month : month;
         day = day < 10 ? '0'+day : day;
-        setSelectedDate(`${year}-${month}-${day}`)
+        setSelectedDate(`${year}-${month}-${day}`);
+        console.log(selectedDate);
     }
 
     const showTextDate = (date) => {
         let dateEl = new Date(date);
         let year = dateEl.getFullYear();
         let month = dateEl.getMonth() + 1;
-        let day = dateEl.getDate();
+        let day = dateEl.getDate() + 1;
 
         month = month < 10 ? '0'+month : month;
         day = day < 10 ? '0'+day : day
