@@ -34,7 +34,7 @@ Esta API é utilizada para o Aplicativo de gestão de condominio ( DevCond )
 
 
 ## Endpoints
-### BASEURL: http://localhost:8000/api
+### BASEURL: http://localhost:7000/api
 
 ### POST /auth/login
 Esse endpoint é responsavel por fazer a autenticação do usuario.
