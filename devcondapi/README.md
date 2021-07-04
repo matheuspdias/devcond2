@@ -1,33 +1,36 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-# API Para o projeto DevCond( Gestão de condominio ) -- !!!!! EM PRODUÇÃO !!!!!!
+# API Para o projeto DevCond( Gestão de condominio )
 Esta API é utilizada para o Aplicativo de gestão de condominio ( DevCond )
 
-## Instalando dependencias e executando a api
+# Executando com o Docker
 
-  # API
-  $ cd devcond
-  $ cd devcondapi
-  ### Criando banco de dados
-  $ No phpmyadmin crie um banco com o nome devcond  
-  ### Instalando as dependências do projeto.
-  $ composer install --no-scripts
-  ### renomeio o arquivo env.example para .env
-  $ no arquivo .env use DB_DATABASE=devcond
-  ### Execute as migrations para criar tabelas com o seguinte comando:
-  $ php artisan migrate
-  ### Execute o seeder para popular as tebelas
-  $ php artisan db:seed
-  ### Executando os storage para compartilhar arquivos e imagens
-  $ php artisan storage:link (CASO DE ERRO APAGUE A PASTA STORAGE EM PUBLIC/STORAGE E EXECUTE O COMANDO NOVAMENTE)
-  ### Gere uma nova chave para a aplicação laravel:
-  $ php artisan key:generate
-  ### Publicar configuração de JWT
-  $ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+  Entre na pasta da api
+
+  - cd devcondapi
+
+  - Crie o arquivo .env na raiz (Cole nele o conteudo do .env-example)
+
+  Dê permisssão para o storage
+  - chmod 777 -R storage/*
+
+  rode os seguintes comandos na sequencia
   
-  $ depois execute php artisan jwt:secret
-  ### Inicie a API
-  $ php artisan serve --host=0.0.0.0
+  - docker-compose up -d
+
+  - docker-compose run composer update
+
+  - docker-compose run composer install
+
+  - docker-compose run artisan key:generate
+
+  - docker-compose run artisan jwt:secret
+
+  - docker-compose run artisan migrate
+
+  - docker-compose run artisan db:seed
+  
+ ### Após os comandos a api estará executando em localhost:7000
 
 
 ## Endpoints

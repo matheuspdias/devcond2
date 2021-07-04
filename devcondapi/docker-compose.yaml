@@ -1,0 +1,74 @@
+version: '3'
+
+networks:
+  default:
+
+services:
+  devcond_webserver: 
+    image: nginx:stable-alpine
+    container_name: devcond_webserver
+    ports: 
+      - "7000:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - default
+
+  devcond_app:
+    build: 
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: devcond_app
+    volumes: 
+      - ./:/var/www/html
+    ports: 
+      - "9004:9004"
+    networks: 
+      - default  
+
+  devcond_db:
+    image: mysql:5.7.29
+    container_name: devcond_db
+    restart: unless-stopped
+    tty: true
+    ports: 
+      - "3306:3306"
+    environment: 
+      MYSQL_DATABASE: devcond
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+    networks: 
+      - default
+    volumes: 
+      - ./docker/mysql:/var/lib/mysql 
+  
+  composer:
+    image: composer:latest
+    container_name: composer_laravel
+    volumes: 
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    networks: 
+      - default
+  
+  npm: 
+    image: node:13.7
+    container_name: npm_laravel
+    volumes: 
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['npm']
+
+  artisan:
+    build: 
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: artisan_laravel
+    volumes: 
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['php', '/var/www/html/artisan']
+    networks: 
+      - default
